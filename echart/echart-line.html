@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>ECharts pie南丁格尔图</title>
+		<!-- 引入 echarts.js -->
+		<script src="echarts.min.js"></script>
+	</head>
+	<body>
+		<!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+		<div id="main" style="width: 500px;height:300px;border: 1px solid #007AFF;"></div>
+		<script type="text/javascript">
+			// 基于准备好的dom，初始化echarts实例
+			var myChart = echarts.init(document.getElementById('main'));
+			// 指定图表的配置项和数据
+			var base = +new Date(2014, 9, 3);
+			var oneDay = 24 * 3600 * 1000;
+			var date = [];
+
+			var data = [Math.random() * 150];
+			var now = new Date(base);
+
+			function addData(shift) {
+				now = [now.getFullYear(), now.getMonth() + 1, now.getDate()].join('/');
+				date.push(now);
+				data.push((Math.random() - 0.4) * 10 + data[data.length - 1]);
+
+				if (shift) {
+					date.shift();
+					data.shift();
+				}
+
+				now = new Date(+new Date(now) + oneDay);
+			}
+
+			for (var i = 1; i < 100; i++) {
+				addData();
+			}
+
+			option = {
+				xAxis: {
+					type: 'category',
+					boundaryGap: false,
+					data: date
+				},
+				yAxis: {
+					boundaryGap: [0, '50%'],
+					type: 'value'
+				},
+				series: [{
+					name: '成交',
+					type: 'line',
+					smooth: true,
+					symbol: 'none',
+					stack: 'a',
+					areaStyle: {
+						normal: {}
+					},
+					data: data
+				}]
+			};
+
+			setInterval(function() {
+				addData(true);
+				myChart.setOption({
+					xAxis: {
+						data: date
+					},
+					series: [{
+						name: '成交',
+						data: data
+					}]
+				});
+			}, 500);
+			// 使用刚指定的配置项和数据显示图表。
+			myChart.setOption(option);
+		</script>
+	</body>
+</html>

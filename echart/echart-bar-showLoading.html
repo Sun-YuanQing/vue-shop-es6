@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>ECharts bar条形统计图</title>
+		<!-- 引入 echarts.js -->
+		<script src="echarts.min.js"></script>
+	</head>
+	<body>
+		<!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+		<div id="main" style="width: 600px;height:300px;border: 1px solid #007AFF;"></div>
+		<script type="text/javascript">
+			// 基于准备好的dom，初始化echarts实例
+			var myChart = echarts.init(document.getElementById('main'));
+
+			function fetchData(cb) {
+				// 通过 setTimeout 模拟异步加载
+				setTimeout(function() {
+					cb({
+						categories: ["衬衫", "羊毛衫", "雪纺衫", "裤子", "高跟鞋", "袜子"],
+						data: [5, 20, 36, 10, 10, 20]
+					});
+				}, 3000);
+			}
+
+			// 初始 option
+			option = {
+				title: {
+					text: '异步数据加载示例'
+				},
+				tooltip: {},
+				legend: {
+					data: ['销量']
+				},
+				xAxis: {
+					data: []
+				},
+				yAxis: {},
+				series: [{
+					name: '销量',
+					type: 'bar',
+				
+					data: [],
+					itemStyle: {
+						normal: {
+							// 阴影的大小
+							shadowBlur: 5,
+							// 阴影水平方向上的偏移
+							shadowOffsetX: 3,
+							// 阴影垂直方向上的偏移
+							shadowOffsetY: 5,
+							// 阴影颜色
+							shadowColor: 'rgba(0, 0, 0, 0.5)'
+						}
+					}
+				}]
+			};
+
+			myChart.showLoading();
+
+			fetchData(function(data) {
+				myChart.hideLoading();
+				myChart.setOption({
+					xAxis: {
+						data: data.categories
+					},
+					series: [{
+						// 根据名字对应到相应的系列
+						name: '销量',
+						data: data.data
+					}]
+				});
+			});
+			// 使用刚指定的配置项和数据显示图表。
+			myChart.setOption(option);
+		</script>
+	</body>
+</html>
