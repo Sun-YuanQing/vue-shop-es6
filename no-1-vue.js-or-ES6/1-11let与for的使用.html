@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>let与for使用</title>
+		<style>
+			li{
+				background: red;
+				color: white;
+				font-size: 20px;
+				margin: 10px 0;
+			}
+		</style>
+	</head>
+	<body>
+		<ul>
+			<li>red</li>
+			<li>blue</li>
+			<li>green</li>
+			<li>yellow</li>
+		</ul>
+	  <script type="text/javascript">
+	
+	     var lis=document.querySelectorAll('li');
+		 
+    //2. var与for循环   //  打印的都是4
+		// for(var i=0;i<lis.length;i++){
+		//	 lis[i].onclick=function(){
+		//		 alert(i)
+		//	 }
+		// }
+	//3. let与for循环   
+		 for(let i=0;i<lis.length;i++){
+			 lis[i].onclick=function(){
+				 alert(i)
+			 }
+		 }
+	//1. 块级作用域
+	    function fa(){
+			let a=15;
+			console.log(a);
+		}
+		fa();
+		console.log(a);
+	 </script>
+	</body>
+</html>

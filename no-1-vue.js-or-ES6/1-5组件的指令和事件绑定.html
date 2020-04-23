@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>1-5组件的指令和事件绑定</title>
+		<!--第一步 引入vue.js-->
+		<script src="../Vue.js"></script>
+	</head>
+	<body>
+		<!--第二步 创建模板-->
+		<template id="account">
+			<div>
+				<h3>账号组件的内容:{{msg}}</h3>
+				<a href="#" @click="login">账号</a>
+				<a href="#">密码</a>
+			</div>
+		</template>
+		<!--第四步 组件的使用-->
+		<div id="app">
+			<account1></account1>
+		</div>
+	</body>
+	
+	<script type="text/javascript">
+		//<!--第三步 定义和注册一个组件，指令的使用-->
+		//全局组件
+		Vue.component('account1',{
+			template:'#account',
+			//组件使用数据
+			data:function(){
+				return {
+					msg:'hello word'
+				}
+			},
+			//组件使用方法
+			methods:{
+				login:function(){
+					console.log('账号');
+					alert('账号');
+				}
+			}
+		})
+		//必写
+	var app=new Vue({
+			//管理边界
+			el:'#app',
+			//存放数据
+			data:{
+				
+			}
+		})
+	</script>
+</html>

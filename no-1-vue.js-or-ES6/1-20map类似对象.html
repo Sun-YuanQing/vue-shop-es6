@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Set数据</title>
+	</head>
+	<body>
+	 <script type="text/javascript">
+	//map类似于对象[{keyName=>keyValue}]
+	//1. map数据不会重复
+	let map= new Map([['name','张三'],['age',24]]);
+	console.log(map);      //Map(2) {"name" => "张三", "age" => 24}
+	//2.  size大小长度
+	console.log(map.size);            //2
+	//3.  添加数据
+	console.log(map.set('sex','男')); //Map(3) {"name" => "张三", "age" => 24, "sex" => "男"}
+	//4.  删除一条数据
+	console.log(map.delete('name'));  //true
+	console.log(map);          //Map(2) {"age" => 24, "sex" => "男"}
+	//5. 获取一条数据
+	console.log(map.get('age'));    //24
+	//6. 查找某条数据,返回布尔值
+	console.log(map.has('sex'));    //true
+	//7. 删除所有数据
+	console.log(map.clear());       //undefined
+	 </script>
+	</body>
+</html>

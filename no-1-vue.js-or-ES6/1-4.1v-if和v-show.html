@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>v-if</title>
+		<!--第一步 引入vue.js-->
+		<script src="../Vue.js"></script>
+	</head>
+	<body>
+		<!--第二步 创建模板-->
+		<div id="app">
+			 <!--v-if-->
+			 <!-- false移除dom-->
+		   <!--<h1 v-if="isShow">true</h1>-->
+		    <!--v-show-->
+			 <!-- style="display: none;"-->
+		   <h1  v-show="isShow">true</h1>
+		</div>
+	</body>
+	<!--第三步 创建vue对象-->
+	<script type="text/javascript">
+		new Vue({
+			//管理边界
+			el:'#app',
+			//存放数据
+			data:{
+			      isShow:true
+				}
+		})
+	</script>
+</html>

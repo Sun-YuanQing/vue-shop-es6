@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Set数据</title>
+	</head>
+	<body>
+	 <script type="text/javascript">
+	//对象{keyName:keyValue}
+	//数组['数据1','数据2','数据2','数据3']
+	//Set类似于数组['数据1','数据2','数据3']
+	//1. Set数据不会重复
+	let set= new Set([1,2,2,3]);
+	console.log(set);           //Set(3) {1, 2, 3}
+	//2.  size大小长度
+	console.log(set.size);      //3
+	//3.  添加
+	console.log(set.add('a'));  //Set(4) {1, 2, 3, "a"}
+	//4.  删除一个数据
+	console.log(set.delete(1));  //true
+	console.log(set);            //Set(3) {2, 3, "a"}
+	//5. 查找数据
+    console.log(set.has('a'));   //true
+	console.log(set.has('b'));   //false
+	//6. 清除数据
+	console.log(set.clear());    //undefined
+	console.log(set);            //Set(0) {}
+	 </script>
+	</body>
+</html>

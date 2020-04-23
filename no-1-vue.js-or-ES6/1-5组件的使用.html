@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>组件的使用</title>
+		<!--第一步 引入vue.js-->
+		<script src="../Vue.js"></script>
+	</head>
+	<body>
+		<!--第二步 创建模板-->
+		<template id="account">
+			<div>
+				<h3>账号组件的内容</h3>
+				<a href="">账号</a>
+				<a href="">密码</a>
+			</div>
+		</template>
+		<!--第四步 组件的使用-->
+		<div id="app">
+			<account1></account1>
+		</div>
+	</body>
+	
+	<script type="text/javascript">
+		//<!--第三步 定义和注册一个组件-->
+		//全局组件
+		Vue.component('account1',{
+			template:'#account'
+		})
+	var app=new Vue({
+			//管理边界
+			el:'#app',
+			//存放数据
+			data:{
+				
+			}
+		})
+	</script>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>let数组的解构赋值</title>
+	</head>
+	<body>
+	
+	 <script type="text/javascript">
+     //--正确的写法
+	 let [a,b,c]=[1,2,3]
+	 console.log(a,b,c);
+	 alert(a+' '+b+' '+c);
+	 //----错误
+	 let [h,,i,e]=[1,2,3]
+	 console.log(h,i,e);//1,3,undefined
+	 alert(h+' '+i+' '+e);
+	 //-------------
+	 function fu(){
+		 return ['red','gree','blue']
+	 }
+	 let [rr,gg,bb]=fu();
+	 console.log(rr,gg,bb);
+	 alert(rr+' '+gg+' '+bb);
+	 </script>
+	</body>
+</html>

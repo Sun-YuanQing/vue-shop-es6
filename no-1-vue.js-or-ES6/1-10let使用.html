@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>let使用</title>
+	</head>
+	<body>
+	  <script type="text/javascript">
+	//1. 在相同的作用域内,let不能重复声明一个变量
+		 var a1=5;
+		 console.log(a1);
+		 var a1=6;
+		 console.log(a1);
+		 //
+		 let a2=5;
+		 console.log('let:'+a2);
+		//let a2=6;
+		//console.log(a2);   //Identifier 'a2' has already been declared
+	//2. let声明变量不会被预解析
+	     console.log(a3);    //undefined
+	     var a3=10;
+	//3. 暂时性死区(变量在let声明前都不能访问，为了防止先调用后声明这个现象)
+	     // console.log(c);
+		 // let c=15;        //c is not defined at 1-9let使用.html:25
+	  </script>
+	</body>
+</html>

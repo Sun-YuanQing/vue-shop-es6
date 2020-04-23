@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>1-7vue-router路由的使用</title>
+		<!--第一步 引入vue.js(2.0)和vue-router
+		Vue2.0下载地址：
+		https://unpkg.com/vue@2.2.1/dist/vue.js
+		
+		配合Vue2.0使用的版本的帮助文档地址：
+		http://router.vuejs.org/zh-cn/installation.html
+		配合Vue2.0使用的版本vue-router下载地址：
+		https://unpkg.com/vue-router/dist/vue-router.js-->
+		
+		<script src="../Vue2.js"></script>
+		<script src="../vue-router.js"></script>
+	</head>
+	<body>
+		<!--第二步 定义模板-->
+		<div id="app">
+			<router-link to='/login'>登陆</router-link>
+			<router-link to='/register/xiaoqi'>注册</router-link>
+			<!--占位符-->
+			<router-view></router-view>
+		</div>
+	</body>
+	<script type="text/javascript">
+	  //定义根组件
+	  var App=Vue.extend()
+	  //定义注册组件
+	  var register =Vue.extend({
+		  template:'<h2>注册:{{oname}}</h2>',
+		  data:function(){
+			  return{
+				  oname:''
+			  }
+		  },
+		  created:function(){
+		         this.oname = this.$route.params.uname//22注意行 xiaoqi是参数
+		 }
+	  })
+	  //定义登陆组件
+	  var login =Vue.extend({
+	      template:'<h2>登陆。。。</h2>'
+	  })
+	  //定义路由并且注册路由规则
+	  //第一个为默认redirect
+	  var vueRouter=new VueRouter({
+		  routes:[
+			  {path:'/',redirect:'/login'},  
+			  {path:'/login',component:login},
+			  {path:'/register/:uname',component:register}//22注意行 xiaoqi是参数
+			  ]
+	  })
+     //使用已有路由规则
+	var app= new Vue({
+		 el:'#app',
+		 router:vueRouter
+	 })
+	</script>
+</html>

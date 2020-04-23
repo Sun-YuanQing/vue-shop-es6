@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>let对象的解构赋值</title>
+
+	</head>
+	<body>
+		<script src="../js/jquery-3.1.0.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			/* var obj = {
+				id: '1',
+				name: '张三',
+				age: '30',
+				language: ['html', 'css', 'js'],
+				study: function() {
+					alert('学习方法');
+				}
+			}
+			let {
+				id,
+				name,
+				age,
+				language,
+				study
+			} = obj;
+			console.log(id, name, age, language, study);
+			//注意:如果变量之前已经被声明了,再次重新赋值的时候不能加let
+			//并且整个赋值语句要用小括号包括其内,以防止程序识别成作用域
+			obj.id = '2';
+			({
+				id,
+				name,
+				age,
+				language,
+				study
+			} = obj);
+			alert(id + '' + name + '' + age + '' + language + '' + study);
+ */
+			console.log(new Date().getTime());
+			var time = new Date().getTime();
+			var str = "RBENwv3CvFDZwyCN";
+			console.log(str.length)
+			$.ajax({
+				type: "post",
+				url: "http://apoc04.cdom.mtiancity.com/snc/v1/user/keep_alive",
+				data: {
+					user_id : 2894553,
+					server_connection_token : str,
+					sn : 6,
+				},
+				contentType: "application/x-www-form-urlencoded",
+				async: false,
+				success: function AppendData(date) {
+					console.log(JSON.stringify(date));
+
+					console.log("告知成功");
+				},
+				error: function(Request) {
+					console.log("告知失败");
+					console.log('0  error:' + Request.responseText);
+
+				}
+			});
+			$.ajax({
+				type: "post",
+				url: "http://apoc01.cdom.mtiancity.com/snc/v1/user/gatherable_store",
+				data: {
+					user_id: 2894553,
+					map_store: {
+						"210604": {
+							"time": time,
+							"amount": 80
+						},
+						"210603": {
+							"time": time,
+							"amount": 50
+						},
+						"210602": {
+							"time": time,
+							"amount": 80
+						},
+						"210601": {
+							"time": time,
+							"amount": 50
+						}
+					},
+					road_network_bonus: 190,
+					server_connection_token: str,
+					sn: 7
+				},
+				contentType: "application/x-www-form-urlencoded",
+				async: false,
+				success: function AppendData(date) {
+					console.log(JSON.stringify(date));
+
+					console.log("金币增加成功");
+				},
+				error: function(Request) {
+					console.log("金币增加失败");
+					console.log('0  error:' + Request.responseText);
+
+				}
+			});
+		</script>
+	</body>
+</html>

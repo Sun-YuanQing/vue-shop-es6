@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>rest用法</title>
+	</head>
+	<body>
+	
+	 <script type="text/javascript">
+       //1. rest 用来替代arguments
+	   function sum(){
+		   var sum =0;
+		   for(var i=0;i<arguments.length;i++){
+			   sum +=arguments[i]
+		   }
+		   return sum
+	   }
+	   alert(sum(1,2,3,4));
+	   
+	   //2. 把集合转换成数组
+	    var  str='abcd';
+		console.log(str);
+		alert([...str].toString());
+	 </script>
+	</body>
+</html>

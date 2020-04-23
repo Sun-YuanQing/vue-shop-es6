@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Symbol唯一</title>
+	</head>
+	<body>
+	
+	 <script type="text/javascript">
+		//先看一下数据的类型
+		 var s=Symbol();
+		 console.log(typeof s);
+		 
+		 //查看他的特性
+		 let s2=Symbol('a');
+		 let s3=Symbol('a');
+		 console.log(s2,s3,s2==s3);
+		 
+	 </script>
+	</body>
+</html>

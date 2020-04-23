@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>const修改常量</title>
+	</head>
+	<body>
+		<label id="lab1"></label>
+		<label id="lab2"></label>
+		<script type="text/javascript">
+			const PI = 12.3;
+			document.getElementById('lab1').innerText = PI;
+			// PI=120.3;  ////Assignment to constant variable.
+			// document.getElementById('lab2').innerText=PI;
+
+			const person = {
+				name: '张三',
+				age: 30
+			}
+			console.log(person.name, person.age);
+			person.name = '李四';
+			person.age = 40;
+			console.log(person.name, person.age);
+			PI = 6.8;//报错
+			console.log(PI);
+		</script>
+	</body>
+</html>

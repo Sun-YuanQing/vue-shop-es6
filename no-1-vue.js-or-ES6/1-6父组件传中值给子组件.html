@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>1-6父组件传中值给组件</title>
+		<!--第一步 引入vue.js-->
+		<script src="../Vue.js"></script>
+	</head>
+	<body>
+		<!--第二步 创建模板-->
+		<template id="account">
+			<div>
+				<h1>组件的数据:{{name1}}</h1>
+			</div>
+		</template>
+		<!--第四步 组件的使用-->
+		<div id="app">
+			<account1 :name1='name'></account1>
+		</div>
+	</body>
+	
+	<script type="text/javascript">
+		//<!--第三步 定义和注册一个组件，指令的使用-->
+		//全局组件
+		Vue.component('account1',{
+			template:'#account',
+			//接受数据
+			props:{
+				name1:String
+			}
+		    
+		})
+		//必写
+	var app=new Vue({
+			//管理边界
+			el:'#app',
+			//存放数据
+			data:{
+				name:'小柒'
+			}
+		})
+	</script>
+</html>

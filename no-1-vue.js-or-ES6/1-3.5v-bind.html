@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>v-bind绑定元素中的属性</title>
+		<!--第一步 引入vue.js-->
+		<script src="../Vue.js"></script>
+	</head>
+	<body>
+		<!--第二步 创建模板-->
+		<div id="app">
+			 <!--v-bind绑定元素中的属性-->
+		 <a v-bind:href="value">http://baidu.com</a>
+		</div>
+	</body>
+	<!--第三步 创建vue对象-->
+	<script type="text/javascript">
+		new Vue({
+			//管理边界
+			el:'#app',
+			//存放数据
+			data:{
+			      value:'http://baidu.com'
+				}
+		})
+	</script>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>插值表达式</title>
+		<!--第一步 引入vue.js-->
+		<script src="../Vue.js"></script>
+	</head>
+	<body>
+		<!--第二步 创建模板-->
+		<div id="app">
+			 <!--v-text-->
+			<div v-text="value">v-text不能像v-html一样识别元素,只能是值value</div>
+		   <!--v-html-->
+		  <div v-html="value"></div>
+		</div>
+	</body>
+	<!--第三步 创建vue对象-->
+	<script type="text/javascript">
+		new Vue({
+			//管理边界
+			el:'#app',
+			//存放数据
+			data:{
+			      value:'<h1>hello word</h1>'
+				}
+		})
+	</script>
+</html>

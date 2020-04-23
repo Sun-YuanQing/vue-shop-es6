@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>v-for</title>
+		<!--第一步 引入vue.js-->
+		<script src="../Vue.js"></script>
+	</head>
+	<body>
+		<!--第二步 创建模板-->
+		<div id="app">
+			 <ul>
+				 <li v-for="singer in singers">{{singer.no}},{{singer.name}}</li>
+			 </ul>
+		
+		</div>
+	</body>
+	<!--第三步 创建vue对象-->
+	<script type="text/javascript">
+		new Vue({
+			//管理边界
+			el:'#app',
+			//存放数据
+			data:{
+			      singers:[
+					  { no:01,name:'AAA'},
+					   { no:02,name:'BBB'},
+					    { no:03,name:'CCC'},
+						 { no:04,name:'DDD'},
+						  { no:05,name:'EEE'},
+					  ]
+				}
+				
+		})
+	</script>
+</html>
